@@ -1,0 +1,15 @@
+{
+  "name": "contenteditable-accessor",
+  "version": "0.1.0",
+  "description": "Getter and setter funcs for contenteditable content",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "contenteditable",
+    "sanitaze"
+  ],
+  "author": "Alexander Rusakov <a_s_rusakov@mail.ru>",
+  "license": "MIT"
+}
