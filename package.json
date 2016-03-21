@@ -1,8 +1,10 @@
 {
   "name": "contenteditable-accessor",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Getter and setter funcs for contenteditable content",
   "main": "index.js",
+  "repository": "arusakov/contenteditable-accessor",
+  "bugs": "https://github.com/arusakov/contenteditable-accessor/issues",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
