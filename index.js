@@ -55,8 +55,32 @@ exports.getText = function(contentEditableElement) {
   }
 
   return lines.join('\n');
-}
+};
 
 exports.getHtml = function(text) {
   return text.replace(/\n/g, '<br>');
-}
+};
+
+exports.getWordBeforeCaret = function() {
+  var text, word = '', offset, selection, range, node;
+  if (window.getSelection) {
+    selection = window.getSelection();
+    if (selection.rangeCount) {
+      range = selection.getRangeAt(0);
+      if (range.startContainer === range.endContainer &&
+        range.startOffset === range.endOffset) {
+          offset = range.endOffset;
+          node = range.endContainer;
+      }
+    }
+  }
+  if (node) {
+    text = node.textContent.substring(0, offset);
+    word = text.split(/\s+/).pop();
+    range.setStart(node, offset - word.length);
+  }
+  return {
+    word,
+    range
+  };
+};
