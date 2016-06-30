@@ -61,8 +61,8 @@ exports.getHtml = function(text) {
   return text.replace(/\n/g, '<br>');
 };
 
-exports.getWordBeforeCaret = function() {
-  var text, word = '', offset, selection, range, node;
+exports.getWordRangeBeforeCaret = function() {
+  var word = '', offset, text, selection, range, node;
   if (window.getSelection) {
     selection = window.getSelection();
     if (selection.rangeCount) {
@@ -71,13 +71,11 @@ exports.getWordBeforeCaret = function() {
         range.startOffset === range.endOffset) {
           offset = range.endOffset;
           node = range.endContainer;
+          text = node.textContent.substring(0, offset);
+          word = text.split(/\s+/).pop();
+          range.setStart(node, offset - word.length);
       }
     }
-  }
-  if (node) {
-    text = node.textContent.substring(0, offset);
-    word = text.split(/\s+/).pop();
-    range.setStart(node, offset - word.length);
   }
   return {
     word,
