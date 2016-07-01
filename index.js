@@ -62,7 +62,7 @@ exports.getHtml = function(text) {
 };
 
 exports.getWordRangeBeforeCaret = function() {
-  var word = '', offset, text, selection, range, node;
+  var word = '', range = null, offset, text, selection, node;
   if (window.getSelection) {
     selection = window.getSelection();
     if (selection.rangeCount) {
