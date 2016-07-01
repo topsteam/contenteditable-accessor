@@ -78,7 +78,7 @@ exports.getWordRangeBeforeCaret = function() {
     }
   }
   return {
-    word,
-    range
+    word: word,
+    range: range
   };
 };
