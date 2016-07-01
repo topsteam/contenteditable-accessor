@@ -1,6 +1,6 @@
 {
   "name": "contenteditable-accessor",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Getter and setter funcs for contenteditable content",
   "main": "index.js",
   "repository": "arusakov/contenteditable-accessor",
