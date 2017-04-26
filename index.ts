@@ -62,7 +62,7 @@ export function getWordRangeBeforeCaret(): { word: string, range: Range | null }
   if (window.getSelection) {
     selection = window.getSelection();
     if (selection.rangeCount) {
-      range = selection.getRangeAt(0);
+      range = selection.getRangeAt(0).cloneRange();
       if (range.startContainer === range.endContainer &&
         range.startOffset === range.endOffset) {
         offset = range.endOffset;
