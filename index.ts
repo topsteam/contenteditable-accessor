@@ -2,34 +2,30 @@ var ELEMENT_NODE = 1;
 var TEXT_NODE = 3;
 var TAGS_BLOCK = /^p|div|pre|form$/;
 
-exports.getText = function(contentEditableElement) {
+export function getText(contentEditableElement: HTMLDivElement): string {
   //
   // thanks https://github.com/diy/jquery-emojiarea
   //
-  var lines = [];
+  var lines: Array<string> = [];
   var line = '';
 
-  var flush = function() {
+  var flush = function () {
     lines.push(line);
     line = '';
   };
+  document.getElementById('a')
 
-  var sanitizeNode = function(node) {
+  var sanitizeNode = function (node: Node) {
     if (node.nodeType === TEXT_NODE) {
       line += node.nodeValue;
     } else if (node.nodeType === ELEMENT_NODE) {
-      var tagName = node.tagName.toLowerCase();
+      var tagName = node.nodeName.toLowerCase();
       var isBlock = TAGS_BLOCK.test(tagName);
 
       if (isBlock && line) {
         flush();
       }
 
-      // if (tagName === 'img') {
-      //   var alt = node.getAttribute('alt') || '';
-      //   if (alt) line.push(alt);
-      //   return;
-      // } else
       if (tagName === 'br') {
         flush();
       }
@@ -57,11 +53,11 @@ exports.getText = function(contentEditableElement) {
   return lines.join('\n');
 };
 
-exports.getHtml = function(text) {
+export function getHtml(text: string): string {
   return text.replace(/\n/g, '<br>');
 };
 
-exports.getWordRangeBeforeCaret = function() {
+export function getWordRangeBeforeCaret(): { word: string, range: Range | null } {
   var word = '', range = null, offset, text, selection, node;
   if (window.getSelection) {
     selection = window.getSelection();
@@ -69,11 +65,11 @@ exports.getWordRangeBeforeCaret = function() {
       range = selection.getRangeAt(0);
       if (range.startContainer === range.endContainer &&
         range.startOffset === range.endOffset) {
-          offset = range.endOffset;
-          node = range.endContainer;
-          text = node.textContent.substring(0, offset);
-          word = text.split(/\s+/).pop();
-          range.setStart(node, offset - word.length);
+        offset = range.endOffset;
+        node = range.endContainer;
+        text = node.textContent ? node.textContent.substring(0, offset) : '';
+        word = text.split(/\s+/).pop()!;
+        range.setStart(node, offset - word.length);
       }
     }
   }
