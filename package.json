@@ -2,7 +2,8 @@
   "name": "contenteditable-accessor",
   "version": "0.3.1",
   "description": "Getter and setter funcs for contenteditable content",
-  "main": "index.ts",
+  "main": "dist/index.js",
+  "typings": "./dist/index.d.ts",
   "repository": "arusakov/contenteditable-accessor",
   "bugs": "https://github.com/arusakov/contenteditable-accessor/issues",
   "scripts": {
@@ -19,5 +20,8 @@
   "devDependencies": {
     "ts-node": "3.0.2",
     "typescript": "2.2.2"
-  }
+  },
+  "files": [
+    "dist"
+  ]
 }
