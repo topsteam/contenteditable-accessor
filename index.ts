@@ -1,6 +1,6 @@
 var ELEMENT_NODE = 1;
 var TEXT_NODE = 3;
-var TAGS_BLOCK = /^p|div|pre|form$/;
+var TAGS_BLOCK = /^(p|div|pre|form)$/;
 
 export function getText(contentEditableElement: HTMLDivElement): string {
   //
