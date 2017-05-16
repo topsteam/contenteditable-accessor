@@ -13,7 +13,6 @@ export function getText(contentEditableElement: HTMLDivElement): string {
     lines.push(line);
     line = '';
   };
-  document.getElementById('a')
 
   var sanitizeNode = function (node: Node) {
     if (node.nodeType === TEXT_NODE) {
