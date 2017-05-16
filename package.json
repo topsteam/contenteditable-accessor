@@ -18,7 +18,6 @@
   "author": "Alexander Rusakov <a_s_rusakov@mail.ru>",
   "license": "MIT",
   "devDependencies": {
-    "ts-node": "3.0.2",
     "typescript": "2.2.2"
   },
   "files": [
